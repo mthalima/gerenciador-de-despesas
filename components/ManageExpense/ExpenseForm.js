@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import Input from './Input';
-import Button from '../UI/Button';
-import { getFormattedDate } from '../../util/date';
-import { GlobalStyles } from '../../constants/styles';
+import Input from "./Input";
+import Button from "../UI/Button";
+import { getFormattedDate } from "../../util/date";
+import { GlobalStyles } from "../../constants/styles";
 
 function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
   const [inputs, setInputs] = useState({
     amount: {
-      value: defaultValues ? defaultValues.amount.toString() : '',
+      value: defaultValues ? defaultValues.amount.toString() : "",
       isValid: true,
     },
     date: {
-      value: defaultValues ? getFormattedDate(defaultValues.date) : '',
+      value: defaultValues ? getFormattedDate(defaultValues.date) : "",
       isValid: true,
     },
     description: {
-      value: defaultValues ? defaultValues.description : '',
+      value: defaultValues ? defaultValues.description : "",
       isValid: true,
     },
   });
@@ -39,7 +39,7 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
     };
 
     const amountIsValid = !isNaN(expenseData.amount) && expenseData.amount > 0;
-    const dateIsValid = expenseData.date.toString() !== 'Invalid Date';
+    const dateIsValid = expenseData.date.toString() !== "Invalid Date";
     const descriptionIsValid = expenseData.description.trim().length > 0;
 
     if (!amountIsValid || !dateIsValid || !descriptionIsValid) {
@@ -74,8 +74,8 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
           label="Amount"
           invalid={!inputs.amount.isValid}
           textInputConfig={{
-            keyboardType: 'decimal-pad',
-            onChangeText: inputChangedHandler.bind(this, 'amount'),
+            keyboardType: "decimal-pad",
+            onChangeText: inputChangedHandler.bind(this, "amount"),
             value: inputs.amount.value,
           }}
         />
@@ -84,21 +84,21 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
           label="Date"
           invalid={!inputs.date.isValid}
           textInputConfig={{
-            placeholder: 'YYYY-MM-DD',
+            placeholder: "DD-MM-AAA",
             maxLength: 10,
-            onChangeText: inputChangedHandler.bind(this, 'date'),
+            onChangeText: inputChangedHandler.bind(this, "date"),
             value: inputs.date.value,
           }}
         />
       </View>
       <Input
-        label="Description"
+        label="Descrição"
         invalid={!inputs.description.isValid}
         textInputConfig={{
           multiline: true,
           // autoCapitalize: 'none'
           // autoCorrect: false // default is true
-          onChangeText: inputChangedHandler.bind(this, 'description'),
+          onChangeText: inputChangedHandler.bind(this, "description"),
           value: inputs.description.value,
         }}
       />
@@ -127,27 +127,27 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
+    fontWeight: "bold",
+    color: "white",
     marginVertical: 24,
-    textAlign: 'center',
+    textAlign: "center",
   },
   inputsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   rowInput: {
     flex: 1,
   },
   errorText: {
-    textAlign: 'center',
+    textAlign: "center",
     color: GlobalStyles.colors.error500,
     margin: 8,
   },
   buttons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   button: {
     minWidth: 120,
