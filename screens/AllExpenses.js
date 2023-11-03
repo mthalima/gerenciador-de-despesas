@@ -9,7 +9,7 @@ function AllExpenses() {
   return (
     <ExpensesOutput
       expenses={expensesCtx.expenses}
-      expensesPeriod="Total"
+      expensesPeriod="Despesas totais"
       fallbackText="Sem despesa registrada!"
     />
   );
