@@ -11,6 +11,7 @@ function RecentExpenses() {
   useEffect(() => {
     async function waitExpenses() {
       const expenses = await getExpenses();
+      expensesCtx.setExpenses(expenses);
     }
 
     waitExpenses();
