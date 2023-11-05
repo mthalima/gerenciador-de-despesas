@@ -35,8 +35,6 @@ function expensesReducer(state, action) {
 function ExpensesContextProvider({ children }) {
   const [expensesState, dispatch] = useReducer(expensesReducer, []);
 
-  if (isLoading) return <LoadingOverlay></LoadingOverlay>;
-
   function addExpense(expenseData) {
     dispatch({ type: "ADD", payload: expenseData });
   }
