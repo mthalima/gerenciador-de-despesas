@@ -1,4 +1,5 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
+import LoadingOverlay from "../components/UI/LoadingOverlay";
 
 export const ExpensesContext = createContext({
   expenses: [],
@@ -33,6 +34,8 @@ function expensesReducer(state, action) {
 
 function ExpensesContextProvider({ children }) {
   const [expensesState, dispatch] = useReducer(expensesReducer, []);
+
+  if (isLoading) return <LoadingOverlay></LoadingOverlay>;
 
   function addExpense(expenseData) {
     dispatch({ type: "ADD", payload: expenseData });
