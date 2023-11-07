@@ -1,19 +1,18 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, ActivityIndicator, StyleSheet, Text } from "react-native";
 import { GlobalStyles } from "../../constants/styles";
+import Button from "./Button";
 
-import { Button } from "./Button";
-
-function ErrorOverLay({ message, onConfirm }) {
+function ErrorOverlay({ message, onConfirm }) {
   return (
     <View style={styles.container}>
-      <Text style={[styles.text, styles.title]}>Erro inesperado.</Text>
+      <Text style={[styles.text, styles.title]}>Erro inesperado!</Text>
       <Text style={styles.text}>{message}</Text>
       <Button onPress={onConfirm}>Ok!</Button>
     </View>
   );
 }
 
-export default ErrorOverLay;
+export default ErrorOverlay;
 
 const styles = StyleSheet.create({
   container: {
@@ -24,14 +23,10 @@ const styles = StyleSheet.create({
     backgroundColor: GlobalStyles.colors.primary700,
   },
 
-  text: {
+  title: {
     textAlign: "center",
     marginBottom: 8,
   },
 
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "white",
-  },
+  text: { fontSize: 20, fontWeight: "bold", color: "white" },
 });
