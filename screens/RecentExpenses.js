@@ -27,12 +27,8 @@ function RecentExpenses() {
     waitExpenses();
   }, []);
 
-  function errorHandler() {
-    setError(null);
-  }
-
   if (error && !isLoading) {
-    return <ErrorOverLay message={error} onConfirm={errorHandler} />;
+    return <ErrorOverLay message={error} />;
   }
 
   if (error) {

@@ -62,13 +62,8 @@ function ManageExpense({ route, navigation }) {
     setSubmitting(false);
   }
 
-  function errorHandler() {
-    setError(null);
-  }
   if (error && !submitting) {
-    return (
-      <ErrorOverlay message={error} onConfirm={errorHandler}></ErrorOverlay>
-    );
+    return <ErrorOverlay message={error}></ErrorOverlay>;
   }
 
   if (submitting) return <LoadingOverlay></LoadingOverlay>;

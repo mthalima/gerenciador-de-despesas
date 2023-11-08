@@ -1,13 +1,11 @@
 import { View, ActivityIndicator, StyleSheet, Text } from "react-native";
 import { GlobalStyles } from "../../constants/styles";
-import Button from "./Button";
 
-function ErrorOverlay({ message, onConfirm }) {
+function ErrorOverlay({ message }) {
   return (
     <View style={styles.container}>
       <Text style={[styles.text, styles.title]}>Erro inesperado!</Text>
       <Text style={styles.text}>{message}</Text>
-      <Button onPress={onConfirm}>Ok!</Button>
     </View>
   );
 }
